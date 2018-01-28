@@ -1,0 +1,59 @@
+
+[alias]
+	tree = log --oneline --decorate --all --graph
+
+	s = status -s
+	st = status
+
+	co = checkout
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+
+[user]
+	email = imposibrus@gmail.com
+	name = imposibrus
+
+[pager]
+	# insanely beautiful diffs ==> brew install diff-so-fancy
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	show = diff-so-fancy | less --tabs=4 -RFX
+
+[color]
+	ui = always
+
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[help]
+	autocorrect = 1
+
+[diff]
+	compactionHeuristic = true
+	# Detect copies as well as renames
+	renames = copies
+
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
+[stash]
+	showPatch = true

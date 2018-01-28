@@ -1,0 +1,25 @@
+
+alias tmux="env TERM=xterm-256color tmux"
+alias tmux-new="tmux new-session -d -s $USER"
+alias tmux-attach="tmux attach-session -t $USER"
+
+alias myip="dig myip.opendns.com @208.67.222.222"
+
+alias dps="docker ps"
+alias dpsa="docker ps -a"
+alias drm="docker rm"
+alias drmi="docker rmi"
+alias di="docker images"
+alias db="docker build"
+alias de="docker exec"
+alias dl="docker logs"
+
+alias gpull="git pull"
+alias gpush="git push"
+alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+alias gc='git commit'
+alias gco='git checkout'
+alias gs='git status'
+
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias +x="chmod +x"
