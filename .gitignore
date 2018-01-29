@@ -1,4 +1,7 @@
 
 .idea/
-config/*
-!config/fish/config.fish
+.config/*
+!.config/fish/config.fish
+!.config/nvim/init.vim
+.vim/*
+!.vim/colors/darcula.vim
