@@ -101,7 +101,6 @@ cask 'qlmarkdown'
 cask 'quicklook-json'
 cask 'betterzip'
 cask 'qlimagesize'
-cask 'webpquicklook'
 cask 'suspicious-package'
 cask 'qlvideo'
 
