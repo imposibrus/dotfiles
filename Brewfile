@@ -40,6 +40,7 @@ cask 'clipy'
 #cask 'postico'
 #cask 'sequel-pro'
 cask 'telegram-desktop'
+cask 'android-platform-tools'
 
 cask 'iina'
 cask 'font-fira-code'
