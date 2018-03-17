@@ -23,3 +23,11 @@ alias gs='git status'
 
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias +x="chmod +x"
+
+alias cdef='echo -e "\033]6;1;bg;*;default\a"'
+
+function ssh
+        command ssh $argv
+        echo -e "\033]6;1;bg;*;default\a"
+end
+
