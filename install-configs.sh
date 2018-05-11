@@ -6,5 +6,5 @@ ROOT_FILES=(.aliases .gitconfig .tmux.conf .vimrc .config/fish/config.fish .conf
 
 for name in "${ROOT_FILES[@]}"
 do
-   ln -s ${PWD}/${name} ~/${name}
+   ln -sf ${PWD}/${name} ~/${name}
 done
