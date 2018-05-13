@@ -3,5 +3,6 @@
 .config/*
 !.config/fish/config.fish
 !.config/nvim/init.vim
+!.config/omf
 .vim/*
 !.vim/colors/darcula.vim
