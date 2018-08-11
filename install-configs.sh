@@ -6,5 +6,9 @@ ROOT_FILES=(.aliases .gitconfig .tmux.conf .vimrc .config/fish/config.fish .conf
 
 for name in "${ROOT_FILES[@]}"
 do
-   ln -sf ${PWD}/${name} ~/${name}
+	if [ -e ~/${name} ]; then
+		mv ~/${name} ~/${name}.back
+		echo "~/${name} moved to ~/${name}.back"
+	fi
+	ln -sf ${PWD}/${name} ~/${name}
 done

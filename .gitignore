@@ -6,3 +6,5 @@
 !.config/omf
 .vim/*
 !.vim/colors/darcula.vim
+.DS_Store
+
