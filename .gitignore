@@ -5,6 +5,7 @@
 !.config/nvim/init.vim
 !.config/omf
 .vim/*
+!.vim/filetype.vim
 !.vim/colors/darcula.vim
+!.vim/syntax/nginx.vim
 .DS_Store
-
