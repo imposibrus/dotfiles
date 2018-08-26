@@ -2,7 +2,7 @@
 .idea/
 .config/*
 !.config/fish/config.fish
-!.config/nvim/init.vim
+!.config/htop/htoprc
 !.config/omf
 .vim/*
 !.vim/filetype.vim
