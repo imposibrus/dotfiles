@@ -31,3 +31,10 @@ function ssh
 	echo -e "\033]6;1;bg;*;default\a"
 end
 
+function is_ssh
+        [ -n "$SSH_CONNECTION" ]; or [ -n "$SSH_CLIENT" ]; or [ -n "$SSH_TTY" ]
+end
+
+function is_tmux
+    [ -n "$TMUX" ]
+end
