@@ -16,5 +16,9 @@ set -g theme_show_exit_status yes
 
 [ -e ~/.aliases ]; and . ~/.aliases
 
+function save_history --on-event fish_preexec
+    history --save
+end
+
 # local untracked staff
 [ -e ~/.localrc ]; and . ~/.localrc
