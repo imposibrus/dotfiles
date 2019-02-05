@@ -16,7 +16,7 @@ alias dl="docker logs"
 
 alias gpull="git pull"
 alias gpush="git push"
-alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+alias gd='git diff --color'
 alias gc='git commit'
 alias gco='git checkout'
 alias gs='git status'
