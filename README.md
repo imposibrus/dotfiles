@@ -17,3 +17,8 @@ npm i diff-so-fancy -g
         name = username
 ```
 - (_macOS optional:_) Run `brew bundle` in home dir
+- (_macOS optional:_) Install Fira Code Nerd Font:
+```bash
+brew tap caskroom/fonts
+brew cask install font-firacode-nerd-font
+```
