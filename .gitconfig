@@ -138,8 +138,10 @@
 	diff = diff-so-fancy | less --tabs=4 -RFX
 	show = diff-so-fancy | less --tabs=4 -RFX
 
-[remote "origin"]
-	fetch = +refs/heads/*:refs/remotes/origin/*
+# commented to avoid "fatal: multiple updates for ... ref not allowed" error
+# as suggested here: https://stackoverflow.com/a/54925834
+#[remote "origin"]
+#   fetch = +refs/heads/*:refs/remotes/origin/*
 
 [stash]
 	showPatch = true
