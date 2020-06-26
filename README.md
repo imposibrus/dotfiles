@@ -1,6 +1,10 @@
 
 # Install
 
+- Clone repository:
+```bash
+git clone git@github.com:imposibrus/dotfiles.git; cd dotfiles
+```
 - Run `./install-configs.sh` for creating folders and linking config files
 - Install [Oh My Fish!](https://github.com/oh-my-fish/oh-my-fish):
 ```bash
@@ -18,7 +22,7 @@ npm i diff-so-fancy -g
 ```
 - (_macOS only:_) Install Fira Code Nerd Font:
 ```bash
-brew tap caskroom/fonts
-brew cask install font-firacode-nerd-font
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code-nerd-font
 ```
 - (_macOS optional:_) Run `brew bundle` in home dir
