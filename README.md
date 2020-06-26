@@ -3,7 +3,7 @@
 
 - Clone repository:
 ```bash
-git clone git@github.com:imposibrus/dotfiles.git; cd dotfiles
+git clone https://github.com/imposibrus/dotfiles.git; cd dotfiles
 ```
 - Run `./install-configs.sh` for creating folders and linking config files
 - Install [Oh My Fish!](https://github.com/oh-my-fish/oh-my-fish):
