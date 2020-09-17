@@ -17,3 +17,5 @@ map <Esc>f <S-Right>
 inoremap <Esc>b <C-o>b
 inoremap <Esc>f <C-o>w
 
+set ruler
+
