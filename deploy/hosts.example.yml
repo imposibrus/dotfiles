@@ -1,0 +1,11 @@
+all:
+  hosts:
+    server-1.example.com:
+      ansible_ssh_user: username
+      # all options are optional (see Ansible docs for more):
+#      ansible_port: 22
+#      ansible_ssh_private_key_file: ~/.ssh/custom_id_rsa
+#      ansible_become: yes
+#      ansible_become_user: root
+    server-2.example.com:
+      ansible_ssh_user: username

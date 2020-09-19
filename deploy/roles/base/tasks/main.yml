@@ -1,0 +1,52 @@
+- name: Adding required ppa's
+  become: yes
+  become_user: root
+  apt_repository: repo={{ item }}
+  with_items:
+    - 'ppa:fish-shell/release-3'
+    - 'ppa:git-core/ppa'
+  tags:
+    - packages
+
+- name: Check Node.js is installed
+  shell: which node
+  register: has_node
+  ignore_errors: true
+
+- name: "Download Node {{nodejs_version}} installer"
+  get_url:
+    url: "https://deb.nodesource.com/setup_{{nodejs_version}}.x"
+    dest: "/tmp/node_setup_{{nodejs_version}}.x"
+  when: has_node is failed
+  register: node_downloaded
+
+- name: "Execute the Node {{nodejs_version}} installer"
+  become: yes
+  become_user: root
+  shell: "bash /tmp/node_setup_{{nodejs_version}}.x"
+  when: has_node is failed
+
+- name: "Remove Node {{nodejs_version}} installer"
+  file:
+    path: "/tmp/node_setup_{{nodejs_version}}.x"
+    state: absent
+  when: node_downloaded.changed
+
+- name: Install base software
+  become: yes
+  become_user: root
+  apt:
+    pkg: "{{ base_packages }}"
+    update_cache: yes
+  tags:
+    - packages
+
+- name: Install global NPM packages
+  become: yes
+  become_user: root
+  npm:
+    name: "{{ item }}"
+    global: yes
+  with_items: "{{ npm_packages }}"
+  tags:
+    - npm-packages

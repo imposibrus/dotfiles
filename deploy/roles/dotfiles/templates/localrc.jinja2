@@ -1,0 +1,20 @@
+#alias vi="vim"
+
+if not isatty
+	exit
+end
+
+# set iTerm2 tab color (red)
+#echo -e "\033]6;1;bg;red;brightness;251\a"
+#echo -e "\033]6;1;bg;green;brightness;107\a"
+#echo -e "\033]6;1;bg;blue;brightness;98\a"
+
+if not is_tmux; and is_ssh
+	tmux-attach; or begin; tmux-new; and tmux-attach; end
+end
+
+{% if has_motd %}
+if is_tmux
+	cat /var/run/motd.dynamic
+end
+{% endif %}

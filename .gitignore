@@ -9,3 +9,4 @@
 !.vim/colors/darcula.vim
 !.vim/syntax/nginx.vim
 .DS_Store
+deploy/hosts.yml

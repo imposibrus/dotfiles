@@ -1,0 +1,70 @@
+- name: Clone dotfiles
+  git:
+    repo: https://github.com/imposibrus/dotfiles.git
+    dest: "/home/{{ ansible_ssh_user }}/dotfiles"
+    accept_hostkey: yes
+#    TODO: branch based on host variable
+#    TODO: custom clone dir
+
+- name: Run dotfiles config installation script
+  shell: "bash /home/{{ ansible_ssh_user }}/dotfiles/install-configs.sh"
+  args:
+    chdir: "/home/{{ ansible_ssh_user }}/dotfiles"
+
+- name: Check Oh My Fish is installed
+  stat:
+    path: "/home/{{ ansible_ssh_user }}/.local/share/omf"
+  register: has_omf
+
+- name: Download Oh My Fish installer
+  get_url:
+    url: https://get.oh-my.fish
+    dest: /tmp/omf_install
+  when: has_omf.stat.exists == False
+  register: omf_downloaded
+
+- name: Execute the Oh My Fish installer
+  shell: fish /tmp/omf_install --noninteractive
+  when: has_omf.stat.exists == False
+
+- name: Remove Oh My Fish installer
+  file:
+    path: /tmp/omf_install
+    state: absent
+  when: omf_downloaded.changed
+
+- name: Create ~/.local/bin dir
+  file:
+    path: "/home/{{ ansible_ssh_user }}/.local/bin"
+    state: directory
+
+- name: Check is ~/.local/bin in Fish path?
+  shell: "echo $fish_user_paths | grep '/home/{{ ansible_ssh_user }}/.local/bin'; or true"
+  args:
+    executable: /usr/bin/fish
+  register: has_local_bin
+
+- name: Add ~/.local/bin to Fish $PATH
+  shell: "set --universal fish_user_paths /home/{{ ansible_ssh_user }}/.local/bin $fish_user_paths"
+  args:
+    executable: /usr/bin/fish
+  when: '"/home/{{ ansible_ssh_user }}/.local/bin" not in has_local_bin.stdout'
+
+- name: Change user's shell
+  become: yes
+  become_user: root
+  user:
+    name: "{{ ansible_ssh_user }}"
+    shell: /usr/bin/fish
+
+- name: Check Message Of Day generator exists
+  stat:
+    path: /var/run/motd.dynamic
+  register: has_motd
+
+- name: Install ~/.localrc for servers
+  template:
+    src: localrc.jinja2
+    dest: ~/.localrc
+  vars:
+    has_motd: has_omf.stat.exists == False
