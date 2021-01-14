@@ -39,3 +39,8 @@ end
 function is_tmux
     [ -n "$TMUX" ]
 end
+
+function grep_highlight
+	grep --color=always -E "$argv[1]|\$" $argv[2];
+end
+
