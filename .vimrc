@@ -19,3 +19,10 @@ inoremap <Esc>f <C-o>w
 
 set ruler
 
+" scroll to last cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" yaml and python indents
+autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype python setlocal tabstop=2 shiftwidth=2 expandtab
+
