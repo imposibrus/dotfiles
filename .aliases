@@ -1,3 +1,4 @@
+#!/usr/bin/env fish
 
 alias tmux="env TERM=xterm-256color tmux"
 alias tmux-new="tmux new-session -d -s $USER"
@@ -21,11 +22,14 @@ alias gd='git diff --color'
 alias gc='git commit'
 alias gco='git checkout'
 alias gs='git status'
+alias grbc='git rebase --continue'
 
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 alias +x="chmod +x"
 
 alias cdef='echo -e "\033]6;1;bg;*;default\a"'
+
+alias nnn="nnn -dHiUc -P i"
 
 function ssh
 	command ssh $argv
@@ -33,11 +37,11 @@ function ssh
 end
 
 function is_ssh
-        [ -n "$SSH_CONNECTION" ]; or [ -n "$SSH_CLIENT" ]; or [ -n "$SSH_TTY" ]
+	[ -n "$SSH_CONNECTION" ]; or [ -n "$SSH_CLIENT" ]; or [ -n "$SSH_TTY" ]
 end
 
 function is_tmux
-    [ -n "$TMUX" ]
+	[ -n "$TMUX" ]
 end
 
 function grep_highlight
