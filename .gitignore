@@ -1,15 +1,5 @@
 
 .idea/
-.config/*
-!.config/fish/config.fish
-!.config/fish/functions
-!.config/htop/htoprc
-!.config/omf
-!.config/bat
-!.config/ranger
-.vim/*
-!.vim/filetype.vim
-!.vim/colors/darcula.vim
-!.vim/syntax/nginx.vim
 .DS_Store
 deploy/hosts.yml
+.vim/.netrwhist

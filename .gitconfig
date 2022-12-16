@@ -109,6 +109,7 @@
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
 	autocrlf = input
+	editor = vim
 
 [diff]
 	# Enable an experimental heuristic that shifts the hunk boundary in an
