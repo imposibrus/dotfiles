@@ -55,10 +55,19 @@ class fzf_select(Command):
         env = os.environ.copy()
         env['FZF_DEFAULT_COMMAND'] = fzf_default_command
         env['FZF_DEFAULT_OPTS'] = '--height=100% --layout=reverse --ansi --preview="{}"'.format('''
-            set cmd bat --color=always {} ||
-                    cat {} ||
-                    tree -ahpCL 3 -I '.git' -I '*.py[co]' -I '__pycache__' {};
-            $cmd 2>/dev/null | head -n 100
+            if test (which batcat);
+                batcat --color=always {};
+            else;
+                if test (which bat);
+                    bat --color=always {};
+                else;
+                    if test (which cat);
+                        cat {};
+                    else;
+                        tree -ahpCL 3 -I '.git' -I '*.py[co]' -I '__pycache__' {};
+                    end;
+                end;
+            end 2>/dev/null | head -n 100
         ''')
 
         fzf = self.fm.execute_command('fzf --no-multi', env=env,
