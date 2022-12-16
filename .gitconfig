@@ -129,10 +129,20 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
+[diff]
+	tool = difftastic
+
+[difftool]
+	prompt = false
+
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+
 [pager]
 	# insanely beautiful diffs ==> brew install diff-so-fancy
 	diff = diff-so-fancy | less --tabs=4 -RFX
 	show = diff-so-fancy | less --tabs=4 -RFX
+	difftool = true
 
 # commented to avoid "fatal: multiple updates for ... ref not allowed" error
 # as suggested here: https://stackoverflow.com/a/54925834

@@ -18,7 +18,7 @@ alias drips="docker ps -q | xargs -n 1 docker inspect --format '{{range .Network
 
 alias gpull="git pull"
 alias gpush="git push"
-alias gd='git diff --color'
+alias gd='git difftool'
 alias gc='git commit'
 alias gco='git checkout'
 alias gs='git status'
@@ -30,6 +30,8 @@ alias +x="chmod +x"
 alias cdef='echo -e "\033]6;1;bg;*;default\a"'
 
 alias nnn="nnn -dHiUc -P i"
+
+alias l="exa --long --classify --group --icons --header"
 
 function ssh
 	command ssh $argv
