@@ -3,7 +3,7 @@
 mkdir -p ~/.config/{fish/functions,htop,omf,bat,ranger} ~/.ssh/{,control} ~/.vim/{colors,syntax}
 
 ROOT_FILES=(
-	.aliases .gitconfig .tmux.conf .vimrc
+	.aliases .gitconfig .gitattributes .tmux.conf .vimrc
 	.config/fish/config.fish .config/fish/functions/ranger.fish .config/htop/htoprc .config/omf/bundle .config/omf/channel .config/omf/theme
 	.config/bat/config .config/ranger/rc.conf .config/ranger/scope.sh .config/ranger/rifle.conf .config/ranger/commands.py
 	.ssh/config

@@ -8,7 +8,7 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[{*.sh,.gitconfig,.aliases,config,*.localrc}]
+[{*.sh,.gitconfig,.gitattributes,.aliases,config,*.localrc}]
 indent_style = tab
 
 [*.md]

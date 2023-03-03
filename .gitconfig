@@ -111,6 +111,8 @@
 	autocrlf = input
 	editor = vim
 
+	attributesfile = ~/.gitattributes
+
 [diff]
 	# Enable an experimental heuristic that shifts the hunk boundary in an
 	# attempt to make the resulting patch easier to read.
@@ -118,9 +120,26 @@
 	# Detect copies as well as renames
 	renames = copies
 
+	tool = difftastic
+
 [diff "bin"]
 	# Use `hexdump` to diff binary files
 	textconv = hexdump -v -C
+
+[diff "json"]
+	textconv = jq --sort-keys .
+
+[difftool]
+	prompt = false
+
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
 [help]
 	# Automatically correct and execute mistyped commands
@@ -129,15 +148,6 @@
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
-
-[diff]
-	tool = difftastic
-
-[difftool]
-	prompt = false
-
-[difftool "difftastic"]
-	cmd = difft "$LOCAL" "$REMOTE"
 
 [pager]
 	# insanely beautiful diffs ==> brew install diff-so-fancy
@@ -152,12 +162,6 @@
 
 [stash]
 	showPatch = true
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 
 [include]
     path = ~/.git_local
