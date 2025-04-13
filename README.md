@@ -8,7 +8,7 @@ git clone https://github.com/imposibrus/dotfiles.git; cd dotfiles
 - Run `./install-configs.sh` for creating folders and linking config files
 - Install [Oh My Fish!](https://github.com/oh-my-fish/oh-my-fish):
 ```bash
-curl -L https://get.oh-my.fish | fish
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 ```
 - Install [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy):
 ```bash
