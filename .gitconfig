@@ -135,12 +135,6 @@
 [difftool "difftastic"]
 	cmd = difft "$LOCAL" "$REMOTE"
 
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-
 [help]
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
@@ -167,3 +161,11 @@
     path = ~/.git_local
 [init]
 	defaultBranch = master
+[safe]
+	directory = *
+	directory = *
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
